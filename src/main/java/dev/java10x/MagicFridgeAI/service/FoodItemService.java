@@ -32,7 +32,7 @@ public class FoodItemService {
                 .collect(Collectors.toList());
     }
 
-    public FoodItemDTO listarPorId(Long id){
+    public FoodItemDTO buscarPorId(Long id){
         return repository.findById(id)
                 .map(mapper::map)
                 .orElse(null);

@@ -31,8 +31,8 @@ public class FoodItemController {
     }
 
     @GetMapping("/listar/{id}")
-    public ResponseEntity<FoodItemDTO> listarPorId(@PathVariable Long id){
-        FoodItemDTO item = service.listarPorId(id);
+    public ResponseEntity<FoodItemDTO> buscarPorId(@PathVariable Long id){
+        FoodItemDTO item = service.buscarPorId(id);
         if (item == null){
             return ResponseEntity.notFound().build();
         }else{
@@ -53,7 +53,7 @@ public class FoodItemController {
     //DELETE
     @DeleteMapping("/deletar/{id}")
     public ResponseEntity<?> deletar(@PathVariable Long id) {
-        if (service.listarPorId(id) != null){
+        if (service.buscarPorId(id) != null){
             service.deletar(id);
             return ResponseEntity.noContent().build();
         }
